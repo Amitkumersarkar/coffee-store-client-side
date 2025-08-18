@@ -1,6 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-
+import Swal from 'sweetalert2'
 const AddCoffee = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,6 +25,14 @@ const AddCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'User Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
             })
 
     }
