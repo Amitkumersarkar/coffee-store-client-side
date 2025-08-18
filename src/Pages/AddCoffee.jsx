@@ -14,6 +14,18 @@ const AddCoffee = () => {
         const details = form.details.value;
         const newCoffee = { name, photo, category, details, chef, taste, supplier }
         console.log(newCoffee);
+        // send client side data into server side
+        fetch('http://localhost:5500/coffee', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCoffee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
 
     }
     return (
