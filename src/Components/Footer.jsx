@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <>
             {/* footer 1 */}
-            <footer className="footer sm:footer-horizontal bg-[#F4F3F0] text-gray-600 p-10">
+            <footer className=" footer sm:footer-horizontal bg-[#F4F3F0] text-gray-600 p-10">
                 <div>
                     <img className="w-[60px]" src={coffeeLogo} alt="Espresso Emporium Logo" />
                     <h1 className="text-2xl font-semibold text-[#331A15]" style={{ fontFamily: "Rancho, cursive" }}>Espresso Emporium</h1>

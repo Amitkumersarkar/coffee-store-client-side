@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const AddCoffee = () => {
     return (
-        <div className="bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
+        <div className=" bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
             {/* Back Button */}
             <NavLink to="/">
                 <button
