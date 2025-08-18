@@ -2,6 +2,20 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 const AddCoffee = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const supplier = form.supplier.value;
+        const category = form.category.value;
+        const photo = form.photo.value;
+        const chef = form.chef.value;
+        const taste = form.taste.value;
+        const details = form.details.value;
+        const newCoffee = { name, photo, category, details, chef, taste, supplier }
+        console.log(newCoffee);
+
+    }
     return (
         <div className=" bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
             {/* Back Button */}
@@ -27,13 +41,14 @@ const AddCoffee = () => {
             </div>
 
             {/* Form */}
-            <form className="w-full max-w-4xl bg-white p-8 rounded-lg shadow-md">
+            <form onSubmit={handleSubmit} className="w-full max-w-4xl bg-white p-8 rounded-lg shadow-md">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Left Column */}
                     <div className="flex flex-col gap-4">
                         <div>
                             <label className="label text-cyan-500 font-semibold">Name</label>
                             <input
+                                name="name"
                                 type="text"
                                 placeholder="Enter coffee name"
                                 className="input input-bordered bg-gray-200 text-black w-full"
@@ -43,6 +58,7 @@ const AddCoffee = () => {
                         <div>
                             <label className="label text-cyan-500 font-semibold">Supplier</label>
                             <input
+                                name="supplier"
                                 type="text"
                                 placeholder="Enter coffee supplier"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
@@ -52,6 +68,7 @@ const AddCoffee = () => {
                         <div>
                             <label className="label text-cyan-500 font-semibold">Category</label>
                             <input
+                                name="category"
                                 type="text"
                                 placeholder="Enter coffee category"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
@@ -61,6 +78,7 @@ const AddCoffee = () => {
                         <div>
                             <label className="label text-cyan-500 font-semibold">Photo</label>
                             <input
+                                name="photo"
                                 type="text"
                                 placeholder="Enter photo URL"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
@@ -73,6 +91,7 @@ const AddCoffee = () => {
                         <div>
                             <label className="label text-cyan-500 font-semibold">Chef</label>
                             <input
+                                name="chef"
                                 type="text"
                                 placeholder="Enter coffee chef"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
@@ -82,6 +101,7 @@ const AddCoffee = () => {
                         <div>
                             <label className="label text-cyan-500 font-semibold">Taste</label>
                             <input
+                                name="taste"
                                 type="text"
                                 placeholder="Enter coffee taste"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
@@ -91,6 +111,7 @@ const AddCoffee = () => {
                         <div>
                             <label className="label text-cyan-500 font-semibold">Details</label>
                             <input
+                                name="details"
                                 type="text"
                                 placeholder="Enter coffee details"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
