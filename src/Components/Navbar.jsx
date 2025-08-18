@@ -1,12 +1,21 @@
-import navImg from "../assets/more/15.jpg"
+import navImg from "../assets/more/15.jpg";
+import bgImg from "../assets/more/15.jpg";
+import logo1 from "../assets/more/logo1.png";
+
 const Navbar = () => {
     return (
-        <>
-            <div className="navbar bg-primary text-primary-content">
-                <img src={navImg} alt="" />
-                <button className="btn btn-ghost text-xl">daisyUI</button>
+        <div
+            className="w-full h-25 py-3 text-white bg-no-repeat bg-cover"
+            style={{ backgroundImage: `url(${bgImg})` }}
+        >
+            <div className="max-w-7xl mx-auto flex justify-center items-center gap-3">
+                <img src={navImg} alt="nav logo" className="w-12 h-10 object-cover" />
+                <img src={logo1} alt="logo1" className="w-18 h-18 object-contain" />
+                <h1 style={{ fontFamily: "Rancho, cursive" }} className="text-5xl">
+                    Espresso Emporium
+                </h1>
             </div>
-        </>
+        </div>
     );
 };
 
