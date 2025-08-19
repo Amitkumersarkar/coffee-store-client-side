@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CoffeeCard = ({ coffee }) => {
     const { _id, name, photo, category, details, chef, taste, supplier } = coffee;
 
-    const handleModify = (_id) => {
+    const handleDelete = (_id) => {
         console.log(_id);
         Swal.fire({
             title: "Are you sure?",
@@ -12,15 +13,22 @@ const CoffeeCard = ({ coffee }) => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, modify it!"
+            confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                // Swal.fire({
-                //     title: "Modified!",
-                //     text: "Your item has been modified.",
-                //     icon: "success"
-                // });
-                console.log('modify successfully');
+
+                fetch(`http://localhost:5500/coffee/${_id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                if (data.deletedCount > 0) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your item has been deleted.",
+                        icon: "success"
+                    });
+                }
             }
         });
     }
@@ -42,8 +50,10 @@ const CoffeeCard = ({ coffee }) => {
                 <div className="card-actions justify-end">
                     <div className="join join-vertical space-y-4">
                         <button className="btn btn-info text-white join-item">View</button>
-                        <button onClick={() => handleModify(_id)} className="btn btn-secondary join-item">Modify</button>
-                        <button className="btn btn-primary join-item">Remove</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-secondary join-item">Delete</button>
+                        <Link to={`updatedCoffee/${_id}`}>
+                            <button className="btn btn-primary join-item">Remove</button>
+                        </Link>
                     </div>
                 </div>
             </div>
