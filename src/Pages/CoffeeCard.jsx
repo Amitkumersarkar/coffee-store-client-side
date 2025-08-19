@@ -1,6 +1,30 @@
+import Swal from "sweetalert2";
 
 const CoffeeCard = ({ coffee }) => {
-    const { name, photo, category, details, chef, taste, supplier } = coffee;
+    const { _id, name, photo, category, details, chef, taste, supplier } = coffee;
+
+    const handleModify = (_id) => {
+        console.log(_id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, modify it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Swal.fire({
+                //     title: "Modified!",
+                //     text: "Your item has been modified.",
+                //     icon: "success"
+                // });
+                console.log('modify successfully');
+            }
+        });
+    }
+
     return (
         <div className="card card-side bg-base-100 shadow-sm">
             <figure>
@@ -17,9 +41,9 @@ const CoffeeCard = ({ coffee }) => {
                 </div>
                 <div className="card-actions justify-end">
                     <div className="join join-vertical space-y-4">
-                        <button className="btn join-item">ViewDetails</button>
-                        <button className="btn join-item">Modify</button>
-                        <button className="btn join-item">Remove</button>
+                        <button className="btn btn-info text-white join-item">View</button>
+                        <button onClick={() => handleModify(_id)} className="btn btn-secondary join-item">Modify</button>
+                        <button className="btn btn-primary join-item">Remove</button>
                     </div>
                 </div>
             </div>
