@@ -27,7 +27,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-11/12 mx-auto grid gird-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-5 mb-5">
+            <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     coffeeLoaded.map((coffee) => <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>)
                 }

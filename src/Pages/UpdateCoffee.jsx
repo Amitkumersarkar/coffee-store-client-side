@@ -4,35 +4,47 @@ import Swal from "sweetalert2";
 
 const UpdateCoffee = () => {
     const coffee = useLoaderData();
-    const { _id, name, photo, category, details, chef, taste, supplier } = coffee;
-    const handleDelete = (_id) => {
-        console.log(_id);
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
+    const { _id, name, photo, category, details, quantity, chef, taste, supplier } = coffee;
 
-                fetch(`http://localhost:5500/coffee/${_id}`, {
-                    method: 'DELETE',
-                })
-                    .then(res => res.json())
-                    .then(data => console.log(data))
-                if (data.deletedCount > 0) {
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        const form = e.target;
+
+        const updatedCoffee = {
+            name: form.name.value,
+            supplier: form.supplier.value,
+            category: form.category.value,
+            photo: form.photo.value,
+            chef: form.chef.value,
+            taste: form.taste.value,
+            quantity: form.quantity.value,
+            details: form.details.value,
+        };
+
+        console.log(updatedCoffee);
+
+        // send client side data into server side
+        fetch(`http://localhost:5500/coffee/${_id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(updatedCoffee),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
                     Swal.fire({
-                        title: "Deleted!",
-                        text: "Your item has been deleted.",
-                        icon: "success"
+                        title: "Success!",
+                        text: "Coffee Updated Successfully",
+                        icon: "success",
+                        confirmButtonText: "Cool",
                     });
                 }
-            }
-        });
-    }
+            });
+    };
+
     return (
         <div className=" bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
             {/* Back Button */}
@@ -47,16 +59,25 @@ const UpdateCoffee = () => {
 
             {/* Heading & Description */}
             <div className="text-center max-w-2xl mb-10">
-                <h1 className="text-4xl text-[#374151] font-semibold mb-4" style={{ fontFamily: "Rancho, cursive" }}>
+                <h1
+                    className="text-4xl text-[#374151] font-semibold mb-4"
+                    style={{ fontFamily: "Rancho, cursive" }}
+                >
                     Update Existing Coffee Details
                 </h1>
                 <p className=" text-[#1B1A1AB2]">
-                    It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.
+                    It is a long established fact that a reader will be distracted by the readable
+                    content of a page when looking at its layout. The point of using Lorem Ipsum is
+                    that it has a more-or-less normal distribution of letters, as opposed to using
+                    Content here.
                 </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleDelete} className="w-full max-w-4xl bg-white p-8 rounded-lg shadow-md">
+            <form
+                onSubmit={handleUpdate}
+                className="w-full max-w-4xl bg-white p-8 rounded-lg shadow-md"
+            >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Left Column */}
                     <div className="flex flex-col gap-4">
@@ -78,7 +99,7 @@ const UpdateCoffee = () => {
                                 type="text"
                                 defaultValue={supplier}
                                 placeholder="Enter coffee supplier"
-                                className="input input-bordered  bg-gray-200 text-black w-full"
+                                className="input input-bordered bg-gray-200 text-black w-full"
                             />
                         </div>
 
@@ -89,7 +110,7 @@ const UpdateCoffee = () => {
                                 type="text"
                                 defaultValue={category}
                                 placeholder="Enter coffee category"
-                                className="input input-bordered  bg-gray-200 text-black w-full"
+                                className="input input-bordered bg-gray-200 text-black w-full"
                             />
                         </div>
 
@@ -100,7 +121,7 @@ const UpdateCoffee = () => {
                                 type="text"
                                 defaultValue={photo}
                                 placeholder="Enter photo URL"
-                                className="input input-bordered  bg-gray-200 text-black w-full"
+                                className="input input-bordered bg-gray-200 text-black w-full"
                             />
                         </div>
                     </div>
@@ -114,7 +135,7 @@ const UpdateCoffee = () => {
                                 type="text"
                                 defaultValue={chef}
                                 placeholder="Enter coffee chef"
-                                className="input input-bordered  bg-gray-200 text-black w-full"
+                                className="input input-bordered bg-gray-200 text-black w-full"
                             />
                         </div>
 
@@ -125,7 +146,17 @@ const UpdateCoffee = () => {
                                 type="text"
                                 defaultValue={taste}
                                 placeholder="Enter coffee taste"
-                                className="input input-bordered  bg-gray-200 text-black w-full"
+                                className="input input-bordered bg-gray-200 text-black w-full"
+                            />
+                        </div>
+                        <div>
+                            <label className="label text-cyan-500 font-semibold">Quantity</label>
+                            <input
+                                name="quantity"
+                                type="text"
+                                defaultValue={quantity}
+                                placeholder="Enter coffee quantity"
+                                className="input input-bordered bg-gray-200 text-black w-full"
                             />
                         </div>
 
@@ -136,7 +167,7 @@ const UpdateCoffee = () => {
                                 type="text"
                                 defaultValue={details}
                                 placeholder="Enter coffee details"
-                                className="input input-bordered  bg-gray-200 text-black w-full"
+                                className="input input-bordered bg-gray-200 text-black w-full"
                             />
                         </div>
                     </div>
@@ -146,7 +177,8 @@ const UpdateCoffee = () => {
                 <button
                     type="submit"
                     className="mt-6 w-full py-3 bg-[#D2B48C] text-[#331A15] text-xl font-semibold rounded-md hover:bg-[#c9a77b] transition-colors"
-                    style={{ fontFamily: "Rancho, cursive" }} >
+                    style={{ fontFamily: "Rancho, cursive" }}
+                >
                     Update Coffee Details
                 </button>
             </form>
