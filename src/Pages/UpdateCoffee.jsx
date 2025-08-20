@@ -61,10 +61,11 @@ const UpdateCoffee = () => {
                     {/* Left Column */}
                     <div className="flex flex-col gap-4">
                         <div>
-                            <label className="label text-cyan-500 font-semibold">Name</label>
+                            <label className="label text-cyan-500 font-semibold">Coffee Name</label>
                             <input
                                 name="name"
                                 type="text"
+                                defaultValue={name}
                                 placeholder="Enter coffee name"
                                 className="input input-bordered bg-gray-200 text-black w-full"
                             />
@@ -75,6 +76,7 @@ const UpdateCoffee = () => {
                             <input
                                 name="supplier"
                                 type="text"
+                                defaultValue={supplier}
                                 placeholder="Enter coffee supplier"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
                             />
@@ -85,6 +87,7 @@ const UpdateCoffee = () => {
                             <input
                                 name="category"
                                 type="text"
+                                defaultValue={category}
                                 placeholder="Enter coffee category"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
                             />
@@ -95,6 +98,7 @@ const UpdateCoffee = () => {
                             <input
                                 name="photo"
                                 type="text"
+                                defaultValue={photo}
                                 placeholder="Enter photo URL"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
                             />
@@ -108,6 +112,7 @@ const UpdateCoffee = () => {
                             <input
                                 name="chef"
                                 type="text"
+                                defaultValue={chef}
                                 placeholder="Enter coffee chef"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
                             />
@@ -118,6 +123,7 @@ const UpdateCoffee = () => {
                             <input
                                 name="taste"
                                 type="text"
+                                defaultValue={taste}
                                 placeholder="Enter coffee taste"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
                             />
@@ -128,6 +134,7 @@ const UpdateCoffee = () => {
                             <input
                                 name="details"
                                 type="text"
+                                defaultValue={details}
                                 placeholder="Enter coffee details"
                                 className="input input-bordered  bg-gray-200 text-black w-full"
                             />

@@ -66,7 +66,7 @@ const AddCoffee = () => {
                     {/* Left Column */}
                     <div className="flex flex-col gap-4">
                         <div>
-                            <label className="label text-cyan-500 font-semibold">Name</label>
+                            <label className="label text-cyan-500 font-semibold">Coffee Name</label>
                             <input
                                 name="name"
                                 type="text"
