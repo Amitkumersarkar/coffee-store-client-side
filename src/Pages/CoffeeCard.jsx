@@ -57,11 +57,11 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
             {/* Coffee Info */}
             <div className="p-4">
                 <h2 className="text-xl font-bold text-gray-800 mb-1">{name}</h2>
-                <p className="text-gray-600 text-sm mb-1">👨‍🍳 Chef: {chef}</p>
-                <p className="text-gray-600 text-sm mb-1">🍵 Taste: {taste}</p>
-                <p className="text-gray-600 text-sm mb-1">🚚 Supplier: {supplier}</p>
-                <p className="text-gray-600 text-sm pb-2">
-                    <span className="font-bold text-cyan-600">Details:</span> {details}
+                <p className="text-gray-600 text-sm mb-1">👨‍🍳 <span className="font-bold text-cyan-600">Chef</span> : {chef}</p>
+                <p className="text-gray-600 text-sm mb-1">🍵 <span className="font-bold text-cyan-600">Taste</span> : {taste}</p>
+                <p className="text-gray-600 text-sm mb-1">🚚  <span className="font-bold text-cyan-600">Supplier</span> : {supplier}</p>
+                <p className="text-gray-600 text-sm mb-1 pb-2">
+                    <span className="font-bold text-cyan-600">Details :</span> {details}
                 </p>
             </div>
 
