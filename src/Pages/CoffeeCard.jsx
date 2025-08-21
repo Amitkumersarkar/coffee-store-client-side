@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import { FcViewDetails } from "react-icons/fc";
 const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     const { _id, name, photo, category, details, chef, taste, supplier } = coffee;
 
@@ -60,9 +60,14 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
                 <p className="text-gray-600 text-sm mb-1">👨‍🍳 <span className="font-bold text-cyan-600">Chef</span> : {chef}</p>
                 <p className="text-gray-600 text-sm mb-1">🍵 <span className="font-bold text-cyan-600">Taste</span> : {taste}</p>
                 <p className="text-gray-600 text-sm mb-1">🚚  <span className="font-bold text-cyan-600">Supplier</span> : {supplier}</p>
-                <p className="text-gray-600 text-sm mb-1 pb-2">
-                    <span className="font-bold text-cyan-600">Details :</span> {details}
-                </p>
+                <div className="flex gap-2 ">
+                    <div className="text-xl">
+                        <FcViewDetails />
+                    </div>
+                    <p className="text-gray-600 text-sm mb-1">
+                        <span className="font-bold text-cyan-600">Details :</span> {details}
+                    </p>
+                </div>
             </div>
 
             {/* Action Buttons */}
