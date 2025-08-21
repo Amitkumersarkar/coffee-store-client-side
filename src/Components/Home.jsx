@@ -32,7 +32,7 @@ const Home = () => {
                         <h1 className="mb-5 text-4xl font-semibold" style={{
                             fontFamily: "Rancho, cursive"
                         }}>Would you like a Cup of Delicious Coffee?</h1>
-                        <p className="mb-5 text-gray-300 font-sans">
+                        <p className="mb-5 text-gray-300 font-serif" style={{ fontfamily: "Raleway"}}>
                             It's coffee time - Sip & Savor - Relaxation in every sip! Get the nostalgia back!! Your companion of every moment!!! Enjoy the beautiful moments and make them memorable And
                             Discover our premium coffees.
                         </p>
@@ -41,9 +41,9 @@ const Home = () => {
                         </NavLink>
                     </div>
                 </div>
-            </div>
+            </div >
             {/* Features Section */}
-            <div className="bg-[#ECEAE3] py-12">
+            < div className="bg-[#ECEAE3] py-12" >
                 <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
 
                     {/* Feature 1 */}
@@ -91,9 +91,9 @@ const Home = () => {
                     </div>
 
                 </div>
-            </div>
+            </div >
             {/* card features */}
-            <div className="text-center mt-10 ">
+            < div className="text-center mt-10 " >
                 <p className="text-xl">--- Sip & Savor ---</p>
                 <h2 className="text-2xl font-semibold" style={{ fontFamily: "Rancho, cursive" }}>Our Popular Products</h2>
                 <div className="p-2" style={{ fontFamily: "Rancho, cursive" }}>
@@ -101,23 +101,25 @@ const Home = () => {
                         <button className="btn bg-[#E3B577]">Add Coffee</button>
                     </Link>
                 </div>
-            </div>
+            </div >
             {/* Coffee Cards Section */}
-            <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10 ">
-                {coffees.map((coffee) => (
-                    <CoffeeCard
-                        key={coffee._id}
-                        coffee={coffee}
-                        coffees={coffees}
-                        setCoffees={setCoffees}
-                    />
-                ))}
-            </div>
+            < div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10 " >
+                {
+                    coffees.map((coffee) => (
+                        <CoffeeCard
+                            key={coffee._id}
+                            coffee={coffee}
+                            coffees={coffees}
+                            setCoffees={setCoffees}
+                        />
+                    ))
+                }
+            </div >
             {/* Follow Now Sections */}
-            <div className="text-center">
+            < div className="text-center" >
                 <h2 className="text-2xl font-semibold text-[#331A15]" style={{ fontFamily: "Rancho, cursive" }}>Follow on Instagram</h2>
                 <p className="text-sm text-[#1B1A1A]">For More Details Follow Us Now</p>
-            </div>
+            </div >
             <div className="mt-5">
 
                 <div className="bg-[#ECEAE3] py-12">
