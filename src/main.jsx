@@ -9,10 +9,12 @@ import Home from './Components/Home';
 import AddCoffee from './Pages/AddCoffee';
 import Root from './Layouts/Root';
 import UpdateCoffee from './Pages/UpdateCoffee';
+import ErrorPage from './Pages/ErrorPage';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',

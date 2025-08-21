@@ -115,8 +115,8 @@ const Home = () => {
             </div>
             {/* Follow Now Sections */}
             <div className="text-center">
-                <p className="text-sm text-[#1B1A1A]">Follow Us Now</p>
                 <h2 className="text-2xl font-semibold text-[#331A15]" style={{ fontFamily: "Rancho, cursive" }}>Follow on Instagram</h2>
+                <p className="text-sm text-[#1B1A1A]">For More Details Follow Us Now</p>
             </div>
             <div className="mt-5">
 
