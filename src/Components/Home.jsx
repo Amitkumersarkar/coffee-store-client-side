@@ -1,10 +1,18 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+import { Link, NavLink, useLoaderData } from "react-router-dom";
 import CoffeeCard from "../Pages/CoffeeCard";
 import { useState } from "react";
 import icons1 from "../assets/icons/1.png"
 import icons2 from "../assets/icons/2.png"
 import icons3 from "../assets/icons/3.png"
 import icons4 from "../assets/icons/4.png"
+import cup1 from "../assets/cups/Rectangle 10.png"
+import cup2 from "../assets/cups/Rectangle 12.png"
+import cup3 from "../assets/cups/Rectangle 13.png"
+import cup4 from "../assets/cups/Rectangle 14.png"
+import cup5 from "../assets/cups/Rectangle 16.png"
+import cup6 from "../assets/cups/Rectangle 11.png"
+import cup7 from "../assets/cups/Rectangle 15.png"
+import cup8 from "../assets/cups/Rectangle 9.png"
 const Home = () => {
     const coffeeLoaded = useLoaderData();
     const [coffees, setCoffees] = useState(coffeeLoaded);
@@ -34,7 +42,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            {/* features section */}
             {/* Features Section */}
             <div className="bg-[#ECEAE3] py-12">
                 <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
@@ -85,9 +92,18 @@ const Home = () => {
 
                 </div>
             </div>
-
+            {/* card features */}
+            <div className="text-center mt-10 ">
+                <p className="text-xl">--- Sip & Savor ---</p>
+                <h2 className="text-2xl font-semibold" style={{ fontFamily: "Rancho, cursive" }}>Our Popular Products</h2>
+                <div className="p-2" style={{ fontFamily: "Rancho, cursive" }}>
+                    <Link to='/addCoffee'>
+                        <button className="btn bg-[#E3B577]">Add Coffee</button>
+                    </Link>
+                </div>
+            </div>
             {/* Coffee Cards Section */}
-            <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
+            <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10 ">
                 {coffees.map((coffee) => (
                     <CoffeeCard
                         key={coffee._id}
@@ -96,6 +112,63 @@ const Home = () => {
                         setCoffees={setCoffees}
                     />
                 ))}
+            </div>
+            {/* Follow Now Sections */}
+            <div className="text-center">
+                <p className="text-sm text-[#1B1A1A]">Follow Us Now</p>
+                <h2 className="text-2xl font-semibold text-[#331A15]" style={{ fontFamily: "Rancho, cursive" }}>Follow on Instagram</h2>
+            </div>
+            <div className="mt-5">
+
+                <div className="bg-[#ECEAE3] py-12">
+                    <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-center">
+
+                        {/* Feature 1 */}
+                        <div className="flex flex-col items-center">
+                            <img src={cup1} alt="Awesome Aroma" className="w-fit h-60 mb-4" />
+
+                        </div>
+
+                        {/* Feature 2 */}
+                        <div className="flex flex-col items-center">
+                            <img src={cup2} alt="High Quality" className="w-fit h-60 mb-4" />
+
+                        </div>
+
+                        {/* Feature 3 */}
+                        <div className="flex flex-col items-center">
+                            <img src={cup3} alt="Pure Grades" className="w-fit h-60 mb-4" />
+
+                        </div>
+
+                        {/* Feature 4 */}
+                        <div className="flex flex-col items-center">
+                            <img src={cup4} alt="Proper Roasting" className="w-fit h-60 mb-4" />
+
+                        </div>
+                        {/* Feature 5 */}
+                        <div className="flex flex-col items-center">
+                            <img src={cup5} alt="Proper Roasting" className="w-fit h-60 mb-4" />
+
+                        </div>
+                        {/* Feature 6 */}
+                        <div className="flex flex-col items-center">
+                            <img src={cup6} alt="Proper Roasting" className="w-fit h-60 mb-4" />
+
+                        </div>
+                        {/* Feature 7*/}
+                        <div className="flex flex-col items-center">
+                            <img src={cup7} alt="Proper Roasting" className="w-fit h-60 mb-4" />
+
+                        </div>
+                        {/* Feature 8 */}
+                        <div className="flex flex-col items-center">
+                            <img src={cup8} alt="Proper Roasting" className="w-fit h-60 mb-4" />
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </>
     );
