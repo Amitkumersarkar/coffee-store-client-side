@@ -10,6 +10,8 @@ import AddCoffee from './Pages/AddCoffee';
 import Root from './Layouts/Root';
 import UpdateCoffee from './Pages/UpdateCoffee';
 import ErrorPage from './Pages/ErrorPage';
+import Navbar2 from './Components/Headers/Navbar2';
+import LogIn from './Pages/LogIn';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
         path: '/updatedCoffee/:id',
         element: <UpdateCoffee></UpdateCoffee>,
         loader: ({ params }) => fetch(`http://localhost:5500/coffee/${params.id}`)
+      },
+      {
+        path: '/navbar',
+        element: <Navbar2></Navbar2>
+      },
+      {
+        path: '/login',
+        element: <LogIn></LogIn>
       }
     ]
   },
