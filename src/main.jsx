@@ -12,6 +12,7 @@ import UpdateCoffee from './Pages/UpdateCoffee';
 import ErrorPage from './Pages/ErrorPage';
 import Navbar2 from './Components/Headers/Navbar2';
 import LogIn from './Pages/LogIn';
+import SignUp from './Pages/SignUp';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LogIn></LogIn>
+      },
+      {
+        path: '/signup',
+        element: <SignUp></SignUp>
       }
     ]
   },
