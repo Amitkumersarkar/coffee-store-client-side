@@ -32,12 +32,12 @@ const Home = () => {
                         <h1 className="mb-5 text-4xl font-semibold" style={{
                             fontFamily: "Rancho, cursive"
                         }}>Would you like a Cup of Delicious Coffee?</h1>
-                        <p className="mb-5 text-gray-300 font-serif" style={{ fontfamily: "Raleway"}}>
+                        <p className="mb-5 text-gray-300 font-serif" style={{ fontfamily: "Raleway" }}>
                             It's coffee time - Sip & Savor - Relaxation in every sip! Get the nostalgia back!! Your companion of every moment!!! Enjoy the beautiful moments and make them memorable And
                             Discover our premium coffees.
                         </p>
                         <NavLink to="/addCoffee">
-                            <button className="btn text-xl  bg-[#E3B577]" style={{ fontFamily: "Rancho, cursive" }}>Learn More</button>
+                            <button className="btn text-xl  bg-[#E3B577]" style={{ fontFamily: "Rancho, cursive" }}>Add More</button>
                         </NavLink>
                     </div>
                 </div>
