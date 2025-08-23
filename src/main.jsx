@@ -13,6 +13,7 @@ import ErrorPage from './Pages/ErrorPage';
 import Navbar2 from './Components/Headers/Navbar2';
 import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
+import AuthProvider from './Providers/AuthProvider';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +53,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
