@@ -83,7 +83,9 @@ const SignUp = () => {
                                 />
 
                                 <div>
-                                    <a className="link link-hover">Forgot password?</a>
+                                    <Link to='error'>
+                                        <a className="link link-hover">Forgot password?</a>
+                                    </Link>
                                 </div>
                                 <button className="btn btn-primary font-semibold font-serif mt-4">
                                     Sign Up

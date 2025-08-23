@@ -1,60 +1,74 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './Components/Home';
-import AddCoffee from './Pages/AddCoffee';
-import Root from './Layouts/Root';
-import UpdateCoffee from './Pages/UpdateCoffee';
-import ErrorPage from './Pages/ErrorPage';
-import Navbar2 from './Components/Headers/Navbar2';
-import LogIn from './Pages/LogIn';
-import SignUp from './Pages/SignUp';
-import AuthProvider from './Providers/AuthProvider';
+
+// Layouts & Providers
+import Root from "./Layouts/Root";
+import AuthProvider from "./Providers/AuthProvider";
+
+// Pages
+import Home from "./Components/Home";
+import AddCoffee from "./Pages/AddCoffee";
+import UpdateCoffee from "./Pages/UpdateCoffee";
+import ViewDetails from "./Pages/ViewDetails";
+import ErrorPage from "./Pages/ErrorPage";
+import Navbar2 from "./Components/Headers/Navbar2";
+import LogIn from "./Pages/LogIn";
+import SignUp from "./Pages/SignUp";
+
+// ✅ Router setup
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>,
-    errorElement: <ErrorPage></ErrorPage>,
+    element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
-        element: <Home></Home>,
-        loader: () => fetch('http://localhost:5500/coffee')
-
+        path: "/",
+        element: <Home />,
+        loader: () => fetch("http://localhost:5500/coffee"),
       },
       {
-        path: '/addCoffee',
-        element: <AddCoffee></AddCoffee>
+        path: "/addCoffee",
+        element: <AddCoffee />,
       },
       {
-        path: '/updatedCoffee/:id',
-        element: <UpdateCoffee></UpdateCoffee>,
-        loader: ({ params }) => fetch(`http://localhost:5500/coffee/${params.id}`)
+        path: "/updatedCoffee/:id",
+        element: <UpdateCoffee />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5500/coffee/${params.id}`),
       },
       {
-        path: '/navbar',
-        element: <Navbar2></Navbar2>
+        path: "/viewDetails/:id",
+        element: <ViewDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5500/coffee/${params.id}`),
       },
       {
-        path: '/login',
-        element: <LogIn></LogIn>
+        path: "/navbar",
+        element: <Navbar2 />,
       },
       {
-        path: '/signup',
-        element: <SignUp></SignUp>
-      }
-    ]
+        path: "/login",
+        element: <LogIn />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+    ],
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+// ✅ Root render
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);

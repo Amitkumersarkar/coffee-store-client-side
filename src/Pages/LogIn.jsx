@@ -1,31 +1,69 @@
 import { Link } from "react-router-dom";
+import { Coffee } from "lucide-react"; // nice coffee icon
 
 const LogIn = () => {
-
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col">
-                <div className="text-center">
-                    <h1 className="text-5xl font-serif text-cyan-500 font-bold">Login now!</h1>
-                    <p className="py-6 font-serif text-gray-500">
-                        Access your personalized dashboard, track your orders, <br /> and manage your coffee preferences all in one place.
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cyan-50 via-white to-cyan-100">
+            <div className="card w-full max-w-md bg-white shadow-2xl rounded-2xl p-6">
+                {/* Header */}
+                <div className="text-center mb-6">
+                    <div className="flex justify-center items-center gap-2">
+                        <Coffee className="w-8 h-8 text-cyan-600" />
+                        <h1 className="text-4xl font-bold font-serif text-cyan-600">
+                            Login
+                        </h1>
+                    </div>
+                    <p className="mt-3 text-gray-500 font-serif text-sm">
+                        Access your dashboard, track your orders, and enjoy your coffee journey ☕
                     </p>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <form>
-                        <div className="card-body">
-                            <fieldset className="fieldset">
-                                <label className="label text-cyan-500 font-semibold">Email</label>
-                                <input name='email' type="email" className="input" placeholder="Email" />
-                                <label className="label text-cyan-500 font-semibold">Password</label>
-                                <input name="password" type="password" className="input" placeholder="Password" />
-                                <div><a className="link link-hover">Forgot password?</a></div>
-                                <button className="btn text-white bg-cyan-600 font-semibold font-serif mt-4">LogIn</button>
-                            </fieldset>
-                            <p className="text-center pt-2">Don't have accounts ? <Link to='/signup'><span className="font-semibold font-serif text-cyan-700">SignUp</span></Link></p>
-                        </div>
-                    </form>
-                </div>
+
+                {/* Form */}
+                <form className="space-y-4">
+                    <div>
+                        <label className="block mb-1 text-sm font-semibold text-cyan-600">
+                            Email
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400"
+                        />
+                    </div>
+                    <div>
+                        <label className="block mb-1 text-sm font-semibold text-cyan-600">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400"
+                        />
+                    </div>
+
+                    <div className="flex justify-between text-sm">
+                        <a className="text-cyan-600 hover:underline cursor-pointer">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <button className="w-full btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-xl shadow-md font-serif">
+                        Log In
+                    </button>
+                </form>
+
+                {/* Footer */}
+                <p className="text-center mt-4 text-sm text-gray-600">
+                    Don’t have an account?{" "}
+                    <Link
+                        to="/signup"
+                        className="text-cyan-700 font-semibold hover:underline"
+                    >
+                        Sign Up
+                    </Link>
+                </p>
             </div>
         </div>
     );
