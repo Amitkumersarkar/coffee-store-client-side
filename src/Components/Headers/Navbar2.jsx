@@ -21,21 +21,21 @@ const Navbar2 = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-gray-800 text-white rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li>
-                            <Link to='/signup'>
+                        className="menu menu-sm dropdown-content bg-cyan-600 text-white rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li className="font-semibold font-serif">
+                            <Link to='/profile'>
                                 <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
+                                    Users  Profile
+                                    {/* <span className="badge ml-2">New</span> */}
                                 </a>
                             </Link>
                         </li>
-                        <li>
+                        <li className="font-semibold font-serif">
                             <NavLink to='/signup'>
                                 SignUp
                             </NavLink>
                         </li>
-                        <li>
+                        <li className="font-semibold font-serif">
                             <NavLink to='/login'>
                                 LogIn
                             </NavLink>

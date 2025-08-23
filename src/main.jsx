@@ -19,6 +19,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import Navbar2 from "./Components/Headers/Navbar2";
 import LogIn from "./Pages/LogIn";
 import SignUp from "./Pages/SignUp";
+import UsersProfile from "./Pages/UsersProfile";
 
 // ✅ Router setup
 const router = createBrowserRouter([
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
       },
+      {
+        path: '/profile',
+        element: <UsersProfile></UsersProfile>,
+        loader: () => fetch('http://localhost:5500/users')
+      }
     ],
   },
 ]);
