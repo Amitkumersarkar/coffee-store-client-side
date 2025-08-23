@@ -7,19 +7,16 @@ const SignUp = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-
         const form = e.target;
         const name = form.name.value;
         const userName = form.userName.value;
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log("Sign Up Data:", { name, userName, email, password });
-
         createUser(email, password)
             .then((result) => {
                 console.log("User created successfully:", result.user);
-                form.reset(); // clear form after success
+                form.reset();
             })
             .catch((error) => {
                 console.error("Error creating user:", error.message);
@@ -27,81 +24,87 @@ const SignUp = () => {
     };
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col">
-                <div className="text-center">
-                    <h1 className="text-5xl font-serif text-blue-600 font-bold">
-                        Sign Up Now
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cyan-50 via-white to-cyan-100">
+            <div className="card w-full max-w-md bg-white shadow-2xl rounded-2xl p-6">
+                {/* Header */}
+                <div className="text-center mb-6">
+                    <h1 className="text-4xl font-bold font-serif text-blue-600">
+                        Sign Up
                     </h1>
+                    <p className="mt-2 text-gray-500 font-serif text-sm">
+                        Create your account to start your coffee journey ☕
+                    </p>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <form onSubmit={handleSignUp}>
-                        <div className="card-body">
-                            <fieldset className="fieldset">
-                                <label className="label text-cyan-500 font-semibold">
-                                    Full Name
-                                </label>
-                                <input
-                                    name="name"
-                                    type="text"
-                                    className="input"
-                                    placeholder="Enter Your Full Name"
-                                    required
-                                />
 
-                                <label className="label text-cyan-500 font-semibold">
-                                    User Name
-                                </label>
-                                <input
-                                    name="userName"
-                                    type="text"
-                                    className="input"
-                                    placeholder="Enter Your User Name"
-                                    required
-                                />
+                {/* Form */}
+                <form onSubmit={handleSignUp} className="space-y-4">
+                    <div>
+                        <label className="block mb-1 text-sm font-semibold text-cyan-600">
+                            Full Name
+                        </label>
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Enter Your Full Name"
+                            className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400"
+                            required
+                        />
+                    </div>
 
-                                <label className="label text-cyan-500 font-semibold">
-                                    Email
-                                </label>
-                                <input
-                                    name="email"
-                                    type="email"
-                                    className="input"
-                                    placeholder="Enter Your Email"
-                                    required
-                                />
+                    <div>
+                        <label className="block mb-1 text-sm font-semibold text-cyan-600">
+                            User Name
+                        </label>
+                        <input
+                            name="userName"
+                            type="text"
+                            placeholder="Enter Your User Name"
+                            className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400"
+                            required
+                        />
+                    </div>
 
-                                <label className="label text-cyan-500 font-semibold">
-                                    Password
-                                </label>
-                                <input
-                                    name="password"
-                                    type="password"
-                                    className="input"
-                                    placeholder="Enter Your Password"
-                                    required
-                                />
+                    <div>
+                        <label className="block mb-1 text-sm font-semibold text-cyan-600">
+                            Email
+                        </label>
+                        <input
+                            name="email"
+                            type="email"
+                            placeholder="Enter Your Email"
+                            className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400"
+                            required
+                        />
+                    </div>
 
-                                <div>
-                                    <Link to='error'>
-                                        <a className="link link-hover">Forgot password?</a>
-                                    </Link>
-                                </div>
-                                <button className="btn btn-primary font-semibold font-serif mt-4">
-                                    Sign Up
-                                </button>
-                            </fieldset>
-                            <p className="text-center pt-2">
-                                Already have an account?{" "}
-                                <Link to="/login">
-                                    <span className="font-semibold font-serif text-green-600">
-                                        Login
-                                    </span>
-                                </Link>
-                            </p>
-                        </div>
-                    </form>
-                </div>
+                    <div>
+                        <label className="block mb-1 text-sm font-semibold text-cyan-600">
+                            Password
+                        </label>
+                        <input
+                            name="password"
+                            type="password"
+                            placeholder="Enter Your Password"
+                            className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400"
+                            required
+                        />
+                    </div>
+
+                    <button className="w-full btn bg-blue-600 hover:bg-gray-500 text-white rounded-xl shadow-md font-serif">
+                        Sign Up
+                    </button>
+                </form>
+
+                {/* Footer */}
+                <p className="text-center mt-4 text-sm text-gray-600">
+                    Already have an account?{" "}
+                    <Link
+                        to="/login"
+                        className="text-blue-700 font-semibold hover:underline"
+                    >
+                        Login
+                    </Link>
+                </p>
             </div>
         </div>
     );
