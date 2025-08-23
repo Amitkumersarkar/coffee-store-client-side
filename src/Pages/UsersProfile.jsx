@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UsersProfile = () => {
     const loadedUsers = useLoaderData();
@@ -9,6 +10,40 @@ const UsersProfile = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const usersPerPage = 6; // Number of users per page
 
+    // delete user method
+    const handleDeleteUser = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                // delete from database
+                fetch(`http://localhost:5500/users/${id}`, {
+                    method: "DELETE",
+
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log("Deleted User Successfully", data)
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remainingUsers = users.filter(user => user._id !== id);
+                            setUsers(remainingUsers);
+                        }
+                    })
+            }
+        });
+    }
     // Filtered and sorted users
     const filteredUsers = users
         .filter(
@@ -84,7 +119,7 @@ const UsersProfile = () => {
                                         <button className="px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-500 transition">
                                             View
                                         </button>
-                                        <button className="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-500 transition">
+                                        <button onClick={() => handleDeleteUser(user._id)} className="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-500 transition">
                                             Delete
                                         </button>
                                     </td>
@@ -111,8 +146,8 @@ const UsersProfile = () => {
                             key={idx}
                             onClick={() => setCurrentPage(idx + 1)}
                             className={`px-3 py-1 rounded-lg transition ${currentPage === idx + 1
-                                    ? "bg-blue-600 text-white"
-                                    : "bg-gray-200 hover:bg-gray-300"
+                                ? "bg-blue-600 text-white"
+                                : "bg-gray-200 hover:bg-gray-300"
                                 }`}
                         >
                             {idx + 1}
