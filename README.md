@@ -1,4 +1,5 @@
-About
+ ABOUT
+_________
 
 Espresso Emporium is a web app for showcasing and managing coffee products. Users can browse coffees, add new items, edit existing ones, and remove items. The site uses Firebase for hosting & auth and a Node/Express + MongoDB backend for storing coffee data. 
 GitHub
@@ -6,11 +7,11 @@ GitHub
 
 Demo / Live site
 
-Live demo: https://coffee-store-c409e.web.app/
-. 
-coffee-store-c409e.web.app
+Live demo: https://coffee-store-c409e.web.app/ 
 
-Features
+
+FEATURES
+_________
 
 List all coffee products.
 
@@ -25,7 +26,8 @@ User sign in / sign out (Firebase Authentication).
 SweetAlert2 used for nicer alerts/confirmations. 
 
 
-Tech stack
+TECH STACK
+_________
 
 Frontend: React (Vite) + Tailwind CSS.
 
