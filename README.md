@@ -1,12 +1,41 @@
-# React + Vite
+About
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Espresso Emporium is a web app for showcasing and managing coffee products. Users can browse coffees, add new items, edit existing ones, and remove items. The site uses Firebase for hosting & auth and a Node/Express + MongoDB backend for storing coffee data. 
+GitHub
++1
 
-Currently, two official plugins are available:
+Demo / Live site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live demo: https://coffee-store-c409e.web.app/
+. 
+coffee-store-c409e.web.app
 
-## Expanding the ESLint configuration
+Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+List all coffee products.
+
+Create (Add) a coffee product.
+
+Edit/Update a coffee product.
+
+Delete a coffee product (with confirmation).
+
+User sign in / sign out (Firebase Authentication).
+
+SweetAlert2 used for nicer alerts/confirmations. 
+GitHub
+
+Tech stack
+
+Frontend: React (Vite) + Tailwind CSS.
+
+UI/UX: SweetAlert2 for confirmation dialogs.
+
+Authentication & Hosting: Firebase (Authentication + Hosting).
+
+Backend: Express.js (REST API).
+
+Database: MongoDB Atlas.
+
+Build tools: Vite (dev server / build). 
+GitHub
