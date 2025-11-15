@@ -23,7 +23,7 @@ Delete a coffee product (with confirmation).
 User sign in / sign out (Firebase Authentication).
 
 SweetAlert2 used for nicer alerts/confirmations. 
-GitHub
+
 
 Tech stack
 
@@ -38,4 +38,3 @@ Backend: Express.js (REST API).
 Database: MongoDB Atlas.
 
 Build tools: Vite (dev server / build). 
-GitHub
